@@ -29,8 +29,14 @@ public class profile_of_user_service_implemented implements profile_of_user_serv
     }
 
     @Override
-    public void deleteProfileByUserEmailID(String User_ID) {
-        Profile_of_user_repository.deleteById(User_ID);
+    public boolean deleteProfileByUserEmailID(String User_ID) {
+        if(!(Profile_of_user_repository.findById(User_ID).isPresent())){
+            return false;
+        }
+        else{
+            Profile_of_user_repository.deleteById(User_ID);
+            return true;
+        }
     }
 
     @Override
@@ -42,7 +48,9 @@ public class profile_of_user_service_implemented implements profile_of_user_serv
             profile_of_user_DB.setUserEmail(profile_user_attributes.getUserEmail());
         }
 
-
+        if (Objects.isNull(profile_user_attributes.getUserPassword()) || "".equalsIgnoreCase(profile_user_attributes.getUserPassword())) {
+            profile_of_user_DB.setUserPassword(profile_user_attributes.getUserPassword());
+        }
 
         //user_password
         if(Objects.nonNull(profile_user_attributes.getUserEmail()) && !"".equalsIgnoreCase(profile_user_attributes.getUserEmail())){

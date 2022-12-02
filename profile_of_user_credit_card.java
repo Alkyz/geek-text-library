@@ -1,13 +1,20 @@
 package software1.softwareengineering1.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
 @Entity
 public class profile_of_user_credit_card {
     @Id
@@ -90,34 +97,15 @@ public class profile_of_user_credit_card {
     public profile_of_user_credit_card(String cardType, String creditCardNumber,
                                        String nameOfCreditCard, int csvCode, String creditCardExpirationDateMonth,
                                        String creditCardExpirationDateYear, String userEmailFK, int PK) {
-        CardType = cardType;
-        CreditCardNumber = creditCardNumber;
-        NameOfCreditCard = nameOfCreditCard;
-        CsvCode = csvCode;
-        CreditCardExpirationDateMonth = creditCardExpirationDateMonth;
-        CreditCardExpirationDateYear = creditCardExpirationDateYear;
-        UserEmailFK = userEmailFK;
+        this.CardType = cardType;
+        this.CreditCardNumber = creditCardNumber;
+        this.NameOfCreditCard = nameOfCreditCard;
+        this.CsvCode = csvCode;
+        this.CreditCardExpirationDateMonth = creditCardExpirationDateMonth;
+        this.CreditCardExpirationDateYear = creditCardExpirationDateYear;
+        this.UserEmailFK = userEmailFK;
         this.PK = PK;
     }
-
-
-
-
-
-    public profile_of_user_credit_card(){
-
-    }
-
-
-
-
-
-
-
-
-
-
-
 
 
 
