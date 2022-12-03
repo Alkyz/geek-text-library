@@ -1,55 +1,77 @@
 package net.codejava.bookbrowsing;
+import java.awt.print.Book;
+import java.util.List;
+
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
-
-
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedNativeQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.SecondaryTable;
 import javax.persistence.Table;
 
 
-
-
-
-
-
 @Entity
 @Table(name = "book_details")
-@SecondaryTable(name = "ratings", pkJoinColumns= @PrimaryKeyJoinColumn(name = "Stars"))
+//@SecondaryTable(name = "ratings", pkJoinColumns= { @PrimaryKeyJoinColumn(name =  "ISBN ",referencedColumnName = "ISBN")})
+//@NamedNativeQuery(name = "book_details.findByGenre", query = "select * FROM book_details bg where bg.book_genre = ?1", resultClass = book_details.class) 
+
+
 public class book_details {
 	@Id
 	@GeneratedValue(strategy =GenerationType.IDENTITY)
 	private int ISBN;
-	private int yearPublished;
-	private int copiesSold;
-	private int book_price;
-	private String book_author;
-	private String book_description;
-	private String book_genre;
-	private String book_name;
-	private String book_publisher;
-	private Integer Stars;
-	private Integer BookSelection;
 	
+	@Column(name = "yearPublished", table = "book_details")
+	private int yearPublished;
+	
+	@Column(name = "copiesSold", table = "book_details")
+	private int copiesSold;
+	
+	@Column(name = "book_price", table = "book_details")
+	private int book_price;
+	
+	@Column(name = "book_author", table = "book_details")
+	private String book_author;
+	
+	@Column(name = "book_description", table = "book_details")
+	private String book_description;
+	
+	@Column(name = "book_genre", table = "book_details")
+	private String book_genre;
+	
+	@Column(name = "book_name", table = "book_details")
+	private String book_name;
+	
+	@Column(name = "book_publisher", table = "book_details")
+	private String book_publisher;
+	
+	
+	
+	@Column(name = "Stars", table = "book_details")
+	private int Stars;
+	
+
+
+   
+    
 	public Integer getStars() {
 		return Stars;
 	}
-	public void setStars(Integer stars) {
-		Stars = stars;
+	public void setStars(Integer Stars) {
+		this.Stars = Stars;
 	}
-	public Integer getBookSelection() {
-		return BookSelection;
-	}
-	public void setBookSelection(Integer bookSelection) {
-		BookSelection = bookSelection;
-	}
+	
 	public int getISBN() {
 		return ISBN;
 	}
-	public void setISBN(int iSBN) {
-		ISBN = iSBN;
+	public void setISBN(int ISBN) {
+		this.ISBN = ISBN;
 	}
 	public int getYearPublished() {
 		return yearPublished;
@@ -104,10 +126,10 @@ public class book_details {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public book_details(int iSBN, int yearPublished, int copiesSold, int book_price, String book_author,
-			String book_description, String book_genre, String book_name, String book_publisher, Integer Stars, Integer BookSelection) {
+	public book_details(int ISBN, int yearPublished, int copiesSold, int book_price, String book_author,
+			String book_description, String book_genre, String book_name, String book_publisher, int Stars ) {
 		super();
-		ISBN = iSBN;
+		this.ISBN = ISBN;
 		this.yearPublished = yearPublished;
 		this.copiesSold = copiesSold;
 		this.book_price = book_price;
@@ -117,8 +139,10 @@ public class book_details {
 		this.book_name = book_name;
 		this.book_publisher = book_publisher;
 		this.Stars = Stars;
-		this.BookSelection = BookSelection;
-		//this.Stars = Stars;
+		
+		
 	}
+
+
 }
 
