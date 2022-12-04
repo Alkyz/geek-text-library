@@ -1,28 +1,48 @@
 package net.codejava.BookREST;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "book")
 public class Book {
 
+	@Id
+	@GeneratedValue
+	@Column(name = "ISBN")
 	private Integer ISBN;
+	
 	private String name;
 	private String description;
 	private Double price;
 	private String author;
 	private String genre;
 	private String publisher;
-	private Integer yearPublished;
-	private Integer copiesSold;
-
+	private Integer year_published;
+	private Integer copies_sold;
+	
+	/*
+	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "book_author_FK", updatable = false, insertable = false)
+	private List<Author> author;
+	*/
+	
 	public Book() {
 	}
 
 	// Constructor
 
 	public Book(Integer iSBN, String name, String description, Double price, String author, String genre,
-			String publisher, Integer yearPublished, Integer copiesSold) {
+			String publisher, Integer year_published, Integer copies_sold) {
 		super();
 		ISBN = iSBN;
 		this.name = name;
@@ -31,12 +51,22 @@ public class Book {
 		this.author = author;
 		this.genre = genre;
 		this.publisher = publisher;
-		this.yearPublished = yearPublished;
-		this.copiesSold = copiesSold;
+		this.year_published = year_published;
+		this.copies_sold = copies_sold;
+	}
+	
+	
+	/*
+	public List<Author> getAuthor() {
+		return author;
 	}
 
+	public void setAuthor(List<Author> author) {
+		this.author = author;
+	}
+	*/
+
 	// Getters and Setters
-	@Id
 	public Integer getISBN() {
 		return ISBN;
 	}
@@ -93,20 +123,20 @@ public class Book {
 		this.publisher = publisher;
 	}
 
-	public Integer getYearPublished() {
-		return yearPublished;
+	public Integer getyear_published() {
+		return year_published;
 	}
 
-	public void setYearPublished(Integer yearPublished) {
-		this.yearPublished = yearPublished;
+	public void setyear_published(Integer year_published) {
+		this.year_published = year_published;
 	}
 
-	public Integer getCopiesSold() {
-		return copiesSold;
+	public Integer getcopies_sold() {
+		return copies_sold;
 	}
 
-	public void setCopiesSold(Integer copiesSold) {
-		this.copiesSold = copiesSold;
+	public void setcopies_sold(Integer copies_sold) {
+		this.copies_sold = copies_sold;
 	}
 
 }
