@@ -4,8 +4,8 @@ The source code contains all the features to implement a RESTful API for an onli
 Features:
 
 1) Book Browsing and Sorting
-    
-API Actions...
+
+   API Actions...
    - Retrieves a List of Books by Genre
    - Retrieves a List of Top Sellers (Top 10 books that have sold the most copied)
    - Retrieves a List of Books for a particular rating and higher
@@ -14,7 +14,7 @@ API Actions...
 
 2) Profile Management
 
-API Actions...
+  API Actions...
   - Creates a User with username(email), password and optional fields (name, 
     email address, home address)
   - Retrieves a User Object and its fields by their username
@@ -24,7 +24,7 @@ API Actions...
 
 3) Shopping Cart
 
-API Actions...
+  API Actions...
   - Creates a shopping cart instance for a user. Shopping cart must belong to a 
     user
   - Updates the shopping cart with a book.
@@ -33,7 +33,7 @@ API Actions...
 
 4) Book Details Users
 
-API Actions...
+  API Actions...
   - An administrator is able to create a book with the book ISBN, book 
     name, book description, price, author, genre, publisher , year published and 
     copies sold
@@ -44,7 +44,7 @@ API Actions...
 
 5) Book Rating and Commenting
 
-API Actions...
+  API Actions...
   - User is able to create a rating for a book by a user on a 5 star scale with a 
     datestamp
   - User is able to create a comment for a book by a user with a datestamp
