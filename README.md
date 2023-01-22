@@ -1,4 +1,4 @@
-![aliis-sinisalu-yzVxz_OYVxU-unsplash](https://user-images.githubusercontent.com/90973494/213945976-e88b0e5b-b6e4-48ef-8460-f989162dd13c.jpg)
+<img="https://user-images.githubusercontent.com/90973494/213945976-e88b0e5b-b6e4-48ef-8460-f989162dd13c.jpg" width="200">
 
 
 # geek-text-library
